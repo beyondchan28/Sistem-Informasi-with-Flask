@@ -1,0 +1,168 @@
+{% include 'header.html' %} {% block body %} x
+
+<body>
+    <div class="container">
+        <div class="well text-center">
+            <h1>DSS Bencana Alam</h1>
+        </div>
+    </div>
+
+    <div>
+
+        <!-- Nav tabs -->
+        <ul class="nav nav-tabs" role="tablist">
+            <li role="presentation" class="active"><a href="#home" aria-controls="home" role="tab" data-toggle="tab">Metode SAW</a></li>
+            <li role="presentation"><a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Metode WP</a></li>
+            <li role="presentation"><a href="#topsis" aria-controls="topsis" role="tab" data-toggle="tab">Metode Topsis</a></li>
+            <li role="presentation"><a href="#moora" aria-controls="topsis" role="tab" data-toggle="tab">Metode Multi-moora</a></li>
+        </ul>
+
+
+        <!-- Tab panes -->
+        <div class="tab-content">
+            <div role="tabpanel" class="tab-pane active" id="home">
+                <div class="container">
+                    <div class="text-center">
+                        <h2><span class="label label-default">Metode SAW</span></h2>
+
+                    </div>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Nama Alternatif</th>
+                            <th>Nama Kriteria</th>
+                            <th>Value</th>
+                            <th>Keterangan</th>
+                            <th>Normalisasi</th>
+                            <th>Pra-rangking</th>
+                        </tr>
+
+                        {% for row in saw %}
+                        <tr>
+                            <td>{{ row.0 }}</td>
+                            <td>{{ row.1 }}</td>
+                            <td>{{ row.2 }}</td>
+                            <td>{{ row.3 }}</td>
+                            <td>{{ row.4 }}</td>
+                            <td>{{ row.5 }}</td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </table>
+                </div>
+
+            </div>
+            <div role="tabpanel" class="tab-pane" id="profile">
+                <div class="container">
+                    <div class="text-center">
+                        <h2><span class="label label-default">Metode WP</span></h2>
+
+                    </div>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Nama Alternatif</th>
+                            <th>Nama Kriteria</th>
+                            <th>Value</th>
+                            <th>Keterangan</th>
+                            <th>Normalisasi</th>
+                            <th>Pangkat</th>
+                        </tr>
+
+                        {% for row in wp %}
+                        <tr>
+                            <td>{{ row.0 }}</td>
+                            <td>{{ row.1 }}</td>
+                            <td>{{ row.2 }}</td>
+                            <td>{{ row.3 }}</td>
+                            <td>{{ row.4 }}</td>
+                            <td>{{ row.5 }}</td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="topsis">
+                <div class="container">
+                    <div class="text-center">
+                        <h2><span class="label label-default">Metode Topsis</span></h2>
+
+                    </div>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Nama Alternatif</th>
+                            <th>Nama Kriteria</th>
+                            <th>Value</th>
+                            <th>Keterangan</th>
+                            <th>Normalisasi</th>
+                            <th>Terbobot</th>
+                        </tr>
+
+                        {% for row in topsis %}
+                        <tr>
+                            <td>{{ row.0 }}</td>
+                            <td>{{ row.1 }}</td>
+                            <td>{{ row.2 }}</td>
+                            <td>{{ row.3 }}</td>
+                            <td>{{ row.4 }}</td>
+                            <td>{{ row.5 }}</td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+
+            <div role="tabpanel" class="tab-pane" id="moora">
+                <div class="container">
+                    <div class="text-center">
+                        <h2><span class="label label-default">Metode Multi-moora</span></h2>
+
+                    </div>
+                    <table class="table table-striped">
+                        <tr>
+                            <th>Nama Alternatif</th>
+                            <th>Nama Kriteria</th>
+                            <th>Value</th>
+                            <th>Keterangan</th>
+                            <th>Pra</th>
+                            <th>Normalisasi</th>
+                            <th>Normalisasibobot</th>
+                        </tr>
+
+                        {% for row in moora %}
+                        <tr>
+                            <td>{{ row.0 }}</td>
+                            <td>{{ row.1 }}</td>
+                            <td>{{ row.2 }}</td>
+                            <td>{{ row.3 }}</td>
+                            <td>{{ row.4 }}</td>
+                            <td>{{ row.5 }}</td>
+                            <td>{{ row.6 }}</td>
+                        </tr>
+
+                        {% endfor %}
+
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    <script>
+        $('#myTabs a').click(function(e) {
+            e.preventDefault()
+            $(this).tab('show')
+        })
+        $('#myTabs a[href="#profile"]').tab('show')
+        $('#myTabs a:first').tab('show') // Select first tab
+        $('#myTabs a:last').tab('show') // Select last tab
+        $('#myTabs li:eq(4) a').tab('show') // Select third tab (0-indexed)
+    </script>
+    {% endblock body %} {% include 'footer.html' %}
