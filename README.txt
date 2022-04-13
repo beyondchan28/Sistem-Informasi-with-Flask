@@ -4,4 +4,4 @@ to run :
 - bootstrap
 - database
 
-Sudah di-hosting di PythonAnywhere 2021
+Sudah di-hosting di PythonAnywhere pada tahun 2021
