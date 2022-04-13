@@ -3,3 +3,5 @@ to run :
 - flask
 - bootstrap
 - database
+
+Sudah di-hosting di PythonAnywhere 2021
